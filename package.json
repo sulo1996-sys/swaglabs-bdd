@@ -2,10 +2,12 @@
   "name": "swaglabs-bdd",
   "version": "1.0.0",
   "scripts": {
-    "test": "cucumber-js"
+    "test": "cucumber-js",
+    "test:json": "cucumber-js --format json:reports/cucumber-report.json"
   },
   "dependencies": {
     "@playwright/test": "^1.49.0",
-    "@cucumber/cucumber": "^10.0.1"
+    "@cucumber/cucumber": "^10.0.1",
+    "playwright": "^1.49.0"
   }
 }
