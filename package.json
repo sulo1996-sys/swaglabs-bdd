@@ -6,8 +6,10 @@
     "test:json": "cucumber-js --format json:reports/cucumber-report.json"
   },
   "dependencies": {
-    "@playwright/test": "^1.49.0",
     "@cucumber/cucumber": "^10.0.1",
     "playwright": "^1.49.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1"
   }
 }
