@@ -1,0 +1,37 @@
+name: Run BDD Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run BDD Tests (with JSON report)
+        run: |
+          mkdir -p reports
+          npx cucumber-js --format json:reports/cucumber-report.json
+
+      - name: Upload Execution Report as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: execution-data
+          path: reports/
