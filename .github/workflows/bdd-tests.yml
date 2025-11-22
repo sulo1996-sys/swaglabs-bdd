@@ -14,6 +14,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      # 🔍 Debug: Show package.json to confirm ESM mode
+      - name: Show package.json
+        run: cat package.json
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -22,7 +26,7 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      # ✅ Install Playwright Browsers
+      # Install Playwright browsers + dependencies
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
