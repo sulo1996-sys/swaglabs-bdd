@@ -22,8 +22,7 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Install Playwright Browsers
-        npx playwright install chromium --with-deps
+      # REMOVE browser installation step
 
       - name: Run BDD Tests (with JSON report)
         run: |
