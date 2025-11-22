@@ -1,6 +1,7 @@
 {
   "name": "swaglabs-bdd",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "test": "cucumber-js",
     "test:json": "cucumber-js --format json:reports/cucumber-report.json"
