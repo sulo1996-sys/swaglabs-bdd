@@ -14,10 +14,18 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Show package.json
+        run: cat package.json
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
+
+      # Ensure devDependencies are installed
+      - name: Ensure dev dependencies are installed
+        run: |
+          echo "NODE_ENV=development" >> $GITHUB_ENV
 
       - name: Install Dependencies
         run: npm ci
@@ -25,20 +33,23 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      # 👇 Generate JSON Cucumber report
       - name: Run BDD Tests
         run: |
           mkdir -p reports
           npx cucumber-js --format json:reports/cucumber.json
 
-      # 👇 Convert JSON report → HTML report
+      # Install HTML Reporter (Fix for missing CLI)
+      - name: Install Cucumber HTML Reporter
+        run: npm install -g cucumber-html-reporter
+
+      # Generate HTML report
       - name: Generate Cucumber HTML Report
         run: |
-          npx cucumber-html-reporter --theme bootstrap \
+          cucumber-html-reporter --theme bootstrap \
             --jsonFile reports/cucumber.json \
             --output reports/cucumber-report.html
 
-      # 👇 Upload HTML report as artifact so you can open in Chrome
+      # Upload final HTML report
       - name: Upload Cucumber HTML Report
         uses: actions/upload-artifact@v4
         with:
