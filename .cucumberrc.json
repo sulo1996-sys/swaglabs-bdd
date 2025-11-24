@@ -5,6 +5,7 @@
       "features/support/*.js"
     ],
     "format": [
+      "json:reports/cucumber-report.json",
       "progress"
     ],
     "publishQuiet": true

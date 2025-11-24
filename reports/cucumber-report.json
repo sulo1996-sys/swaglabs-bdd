@@ -1,0 +1,235 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "add-to-cart;add-backpack-to-cart",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Add backpack to cart",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 326797900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I navigate to SwagLabs",
+            "match": {
+              "location": "file:\\C:\\Users\\SulochanaS\\Downloads\\swaglabs\\features\\step-definitions\\login.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1299644499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "I login with valid credentials",
+            "match": {
+              "location": "file:\\C:\\Users\\SulochanaS\\Downloads\\swaglabs\\features\\step-definitions\\login.steps.js:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 235148900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I add backpack to cart",
+            "match": {
+              "location": "file:\\C:\\Users\\SulochanaS\\Downloads\\swaglabs\\features\\step-definitions\\add_to_cart.steps.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 67446500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "It should appear in cart",
+            "match": {
+              "location": "file:\\C:\\Users\\SulochanaS\\Downloads\\swaglabs\\features\\step-definitions\\add_to_cart.steps.js:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 70040800
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 130871699
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "add-to-cart",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Add to cart",
+    "tags": [],
+    "uri": "features\\add_to_cart.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "login-functionality;successful-login",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Successful Login",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 317202999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I navigate to SwagLabs",
+            "match": {
+              "location": "file:\\C:\\Users\\SulochanaS\\Downloads\\swaglabs\\features\\step-definitions\\login.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 998044500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I login with valid credentials",
+            "match": {
+              "location": "file:\\C:\\Users\\SulochanaS\\Downloads\\swaglabs\\features\\step-definitions\\login.steps.js:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 171197900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I should see products page",
+            "match": {
+              "location": "file:\\C:\\Users\\SulochanaS\\Downloads\\swaglabs\\features\\step-definitions\\login.steps.js:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10118199
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 130314100
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-functionality;invalid-login",
+        "keyword": "Scenario",
+        "line": 9,
+        "name": "Invalid Login",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 279002900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 10,
+            "name": "I navigate to SwagLabs",
+            "match": {
+              "location": "file:\\C:\\Users\\SulochanaS\\Downloads\\swaglabs\\features\\step-definitions\\login.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1150191799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 11,
+            "name": "I login with invalid credentials",
+            "match": {
+              "location": "file:\\C:\\Users\\SulochanaS\\Downloads\\swaglabs\\features\\step-definitions\\login.steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 159412199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "I should see an error message",
+            "match": {
+              "location": "file:\\C:\\Users\\SulochanaS\\Downloads\\swaglabs\\features\\step-definitions\\login.steps.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7728799
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 135090000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "login-functionality",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Login functionality",
+    "tags": [],
+    "uri": "features\\login.feature"
+  }
+]
