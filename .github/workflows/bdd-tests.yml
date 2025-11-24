@@ -22,11 +22,6 @@ jobs:
         with:
           node-version: 18
 
-      # Ensure devDependencies are installed
-      - name: Ensure dev dependencies are installed
-        run: |
-          echo "NODE_ENV=development" >> $GITHUB_ENV
-
       - name: Install Dependencies
         run: npm ci
 
@@ -38,18 +33,13 @@ jobs:
           mkdir -p reports
           npx cucumber-js --format json:reports/cucumber.json
 
-      # Install HTML Reporter (Fix for missing CLI)
-      - name: Install Cucumber HTML Reporter
-        run: npm install -g cucumber-html-reporter
-
-      # Generate HTML report
+      # -------------------------------------------------------------------
+      # ✔ Generate HTML report using Node script (NO global install needed)
+      # -------------------------------------------------------------------
       - name: Generate Cucumber HTML Report
-        run: |
-          cucumber-html-reporter --theme bootstrap \
-            --jsonFile reports/cucumber.json \
-            --output reports/cucumber-report.html
+        run: node generate-report.cjs
 
-      # Upload final HTML report
+      # Upload final HTML report as artifact
       - name: Upload Cucumber HTML Report
         uses: actions/upload-artifact@v4
         with:
