@@ -14,10 +14,6 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # 🔍 Debug: Show package.json to confirm ESM mode
-      - name: Show package.json
-        run: cat package.json
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -26,17 +22,25 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      # Install Playwright browsers + dependencies
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run BDD Tests (with JSON report)
+      # 👇 Generate JSON Cucumber report
+      - name: Run BDD Tests
         run: |
           mkdir -p reports
-          npx cucumber-js --format json:reports/cucumber-report.json
+          npx cucumber-js --format json:reports/cucumber.json
 
-      - name: Upload Execution Report as Artifact
+      # 👇 Convert JSON report → HTML report
+      - name: Generate Cucumber HTML Report
+        run: |
+          npx cucumber-html-reporter --theme bootstrap \
+            --jsonFile reports/cucumber.json \
+            --output reports/cucumber-report.html
+
+      # 👇 Upload HTML report as artifact so you can open in Chrome
+      - name: Upload Cucumber HTML Report
         uses: actions/upload-artifact@v4
         with:
-          name: execution-data
-          path: reports/
+          name: cucumber-html-report
+          path: reports/cucumber-report.html
